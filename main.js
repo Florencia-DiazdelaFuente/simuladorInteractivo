@@ -74,9 +74,13 @@ else if (entrada == "masculino") {
 else {alert("Los datos ingresados no son válidos")}
 
 
+const modelosFem = ["modelo1", "modelo2", "modelo3", "modelo4", "modelo5"]
+modelosFem.push ("modelo6", "modelo7", "modelo8", "modelo9", "modelo10")
 
+console.log (modelosFem)
 
+const modelosMasc1 = ["modelo1", "modelo2", "modelo3", "modelo4", "modelo5"]
+const modelosMasc2 = ["modelo6", "modelo7", "modelo8", "modelo9", "modelo10"]
+const totalModelosMasc = modelosMasc1.concat(modelosMasc2)
 
-
-
-
+console.log (totalModelosMasc)
