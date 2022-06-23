@@ -1,0 +1,11 @@
+.contenedor-productos {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+#contenedorCarrito {
+    display: flex;
+    flex-flow: row wrap;
+
+}
