@@ -1,11 +1,132 @@
-.contenedor-productos {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
+*{
+    margin: 0;
+    padding: 0;
 }
+
+header {
+    background-color: rgba(26, 25, 25);
+    display: flex;
+    justify-content: center;
+}
+
+header div {
+    width: 80%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+}
+.logo {
+    font-size: larger;
+    color: rgb(205, 219, 221);
+    padding-bottom: 2px;
+    border-bottom: 1px solid rgb(205, 219, 221);
+}
+
+
+.btnCarrito {
+    color: rgb(205, 219, 221);
+    font-size: 30px;
+    width: 60px;
+    border: none;
+    background-color: rgba(26, 25, 25);
+    cursor: pointer;
+
+}
+
+
+
+.modalContenedor {
+    position: fixed;
+    background-color: whitesmoke;
+    top: 100px;
+    right: 0;
+    min-width: 500px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.modalActivo {
+    visibility: visible;
+}
+
+
+
 
 #contenedorCarrito {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
+    justify-content: space-around;
 
+}
+
+.modalCarrito {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 10px 0;
+    width: 80%;
+    height: 100%;
+}
+
+.itemEnCarrito {
+
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.itemEnCarrito button{
+    border: none;
+    color: red;
+    cursor: pointer;
+
+}
+
+.textoPrecio {
+    font-style: italic;
+    font-weight: 600;
+    margin: 15px 0;
+    padding-top: 5px;
+    border-top: 2px solid rgb(26, 25, 25);
+}
+
+#vaciarCarrito {
+    color: rgb(205, 219, 221);
+    width: 50%;
+    background-color: rgb(26, 25, 25);
+    border-radius: 8px;
+    border-color:rgb(26, 25, 25);
+    align-self: center;
+    padding: 5px 0;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#vaciarCarrito:hover {
+    font-weight: 600;
+}
+
+.contenedorProductos {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+}
+
+.fichaProducto {
+    max-width: 200px;
+    padding: 10px;
+    margin-top: 3px;
+    border-width: 5px;
+    border-color: black;
+    border-style: double;
+}
+
+.imagenProducto {
+    max-width: 100%;
 }

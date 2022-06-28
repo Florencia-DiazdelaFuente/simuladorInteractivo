@@ -5,35 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador Interactivo</title>
+    <script src="https://kit.fontawesome.com/a49b6db648.js" crossorigin="anonymous"></script>
     <script defer src="./main.js"></script>  
     <link rel="stylesheet" href="./style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
     <header>
-        <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <circle cx="6" cy="19" r="2" />
-            <circle cx="17" cy="19" r="2" />
-            <path d="M17 17h-11v-14h-2" />
-            <path d="M6 5l14 1l-1 7h-13" />
-        </svg><span id="contadorCarrito"></span></div>
-        <h5 id="carrito"></h5>
-        <div id="contenedorCarrito">
-            <p>Precio total: $<span id="totalCarrito">0</span></p>
-
+        <div>
+            <h4 class="logo">TU CASACA</h4>
+            <button class="btnCarrito"><i class="fa-solid fa-cart-shopping"></i><span class="contadorCarrito"></span></button>
         </div>
         
-
     </header>
     <main>
+        <div class="modalContenedor">
+            <div class="modalCarrito">
+                <h3>Mi carrito</h3>
+                <div id="contenedorCarrito">
+                </div>
+                <p class="textoPrecio">Total: $<span id="precioTotal">0</span></p>
+                <button id="vaciarCarrito">VACIAR CARRITO</button>
+            </div>
+        </div>
+
         <h1>TU CASACA</h1>
         <H2>CAMISETAS DE FÚTBOL PERSONALIZADAS</H2>
         <P>Somos una empresa argentina dedicada al diseño y producción de camisetas de fútbol personalizadas. Elegí entre nuestros diseños propios o envíanos tu idea y te responderemos con un diseño personalizado para vos o tu equipo.</P>
         
         <h3>NUESTROS DISEÑOS</h3>
             
-            <section class="contenedor-productos"></section>
+            <section class="contenedorProductos"></section>
 
 
         <section>
@@ -44,6 +45,5 @@
 
     </main>
     <footer></footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
