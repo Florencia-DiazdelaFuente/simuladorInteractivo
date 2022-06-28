@@ -160,35 +160,3 @@ btnCarrito.addEventListener ("click", ()=> {
 
 
 
-
-
-
-
-//--código viejo--
-
-const calculo = (a, b, c) => (a * b) + c 
-// total = calculo (productoSeleccionado.precio, cantidad, precioEstampado)
-
-// totalConIva = calculo (total, iva, 0)
-
-
-// let detalle = document.createElement ("h4")
-// detalle.innerText = "DETALLE DE SU PEDIDO"
-
-
-// let contenedor = document.createElement ("div")
-// contenedor.innerHTML = `<h5> ID: ${productoSeleccionado.id}</h5>
-//                         <p> Producto: ${productoSeleccionado.modelo}</p>
-//                         <p> Precio: $ ${productoSeleccionado.precio}</p>
-//                         <p> Cantidad: ${cantidad}</p>
-//                         <p> Estampado: $ ${precioEstampado}</p>
-//                         <p> Total: $ ${total}</p>
-//                         <p> Total más IVA: $ ${totalConIva}</p>`
-
-// document.body.append(detalle, contenedor)
-
-
-// const totalCarrito = document.getElementById ("carrito")
-// totalCarrito.innerText = "$" + totalConIva
-
-
