@@ -38,6 +38,7 @@ const modalContenedor = document.querySelector(".modalContenedor")
 let contadorCarrito = document.querySelector(".contadorCarrito")
 const btnCerrarCarrito = document.querySelector("#carritoCerrar")
 
+
 const carritoEnLS = JSON.parse( localStorage.getItem('carrito') )
 
 
@@ -66,13 +67,13 @@ contenedorProductos.append(div)
 
 
 
-
 //--CARRITO--
 
 let carrito = []
 
 function agregarAlCarrito (id) {
     const item = productos.find((prod)=> prod.id === id)
+
     carrito.push(item)
     
     localStorage.setItem("carrito", JSON.stringify(carrito))
@@ -83,6 +84,22 @@ function agregarAlCarrito (id) {
 }
 
 function eliminarDelCarrito (id) {
+    Swal.fire({
+        title: 'ELIMINAR PRODUCTO',
+        text: "¿Estás seguro de querer eliminar este producto?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar producto',
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+        Swal.fire(
+            'Eliminado',
+            'Tu producto se eliminó correctamente',
+            'success'
+        )
     const item = productos.find((prod) =>prod.id === id)
     const indice = carrito.indexOf(item)
     carrito.splice(indice, 1)
@@ -92,18 +109,42 @@ function eliminarDelCarrito (id) {
     renderCarrito()
     renderTotal()
     renderCantidad()
+}}
+)
 }
 
-function vaciarCarrito (id) {
-    carrito.length = 0
-    localStorage.setItem("carrito", JSON.stringify(carrito))
 
-    renderCarrito ()
-    renderTotal ()
-    renderCantidad()
+function vaciarCarrito (id) {
+    Swal.fire({
+        title: 'VACIAR CARRITO',
+        text: "¿Estás seguro de querer vaciar el carrito?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, vaciar carrito',
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+        Swal.fire(
+            'Vaciado',
+            'Tu carrito se vació correctamente',
+            'success'
+        )
+        carrito.length = 0
+        localStorage.setItem("carrito", JSON.stringify(carrito))
+
+renderCarrito ()
+renderTotal ()
+renderCantidad()
+        }
+    })
+
 }
 
 btnVaciarCarrito.addEventListener("click", vaciarCarrito)
+
+
 
 
 
@@ -116,11 +157,17 @@ const renderCarrito = () => {
         div.innerHTML = ` 
                     <p>Modelo: ${el.modelo}</p>
                     <p>$${el.precio} </p>
-                    <button onclick="eliminarDelCarrito(${el.id})"><i class="fa-solid fa-trash"></i></button>
+                    <p>ID: ${el.id} </p>
+                    <button class="btnEliminarProducto"><i class="fa-solid fa-trash"></i></button>
                     `
         contenedorCarrito.append(div)
+        const btnEliminarProducto = document.querySelector(".btnEliminarProducto")
+        btnEliminarProducto.addEventListener("click", eliminarDelCarrito)
     })
 }
+
+
+
 
 
 const renderCantidad = () => {
@@ -155,6 +202,10 @@ if (carritoEnLS) {
 
 btnCarrito.addEventListener ("click", ()=> {
         modalContenedor.classList.toggle("modalActivo")
+})
+
+btnCerrarCarrito.addEventListener ("click", ()=>{
+    modalContenedor.classList.remove("modalActivo")
 })
 
 

@@ -87,6 +87,12 @@ header div {
 
 }
 
+#carritoCerrar {
+    border: none;
+    position: absolute;
+    right: 40px;
+}
+
 .textoPrecio {
     font-style: italic;
     font-weight: 600;
@@ -130,3 +136,37 @@ header div {
 .imagenProducto {
     max-width: 100%;
 }
+
+
+
+/* .portada {
+        width: 100%;
+        filter: brightness(0.5);
+        z-index: -1;
+    } */
+
+/* .portadaTexto {
+    width: 90%;
+    height: 50%;
+    margin-left: 10%;
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-70%, -50%);
+    color:  rgb(205, 219, 221);
+} */
+
+/* .portadaTexto h1 {
+    width: 18%;
+    border-bottom: 1px solid rgb(205, 219, 221);
+} */
+
+/* .portadaTexto p {
+    width: 80%;
+    margin-left: 10%;
+    padding-top: 150px;
+    padding-right: 50px;
+    line-height: 2;
+    text-align: justify;
+} */
