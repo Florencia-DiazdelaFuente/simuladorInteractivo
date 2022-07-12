@@ -1,33 +1,6 @@
 
-// Armado del stock
 
-const productos = []
-
-class Producto {
-    constructor (id, modelo, precio, img){
-    this.id = id;
-    this.modelo = modelo,
-    this.precio = precio;
-    this.img = img;
-}}
-
-const producto1 = new Producto (1, "Classic",3000, "./assets/camiseta1.jpg");
-const producto3 = new Producto (3, "Aqua",3050, "./assets/camiseta2.jpg");
-const producto5 = new Producto (5, "Black",3100, "./assets/camiseta5.jpg");
-const producto7 = new Producto (7, "Paris",3120, "./assets/camiseta4.jpg");
-const producto9 = new Producto (9, "Dúo",3150, "./assets/camiseta3.jpg");
-const producto2 = new Producto (2, "Classic",3200, "./assets/camiseta1.jpg");
-const producto4 = new Producto (4, "Liso",3230, "./assets/camiseta1.jpg");
-const producto6 = new Producto (6, "Argento",3250, "./assets/camiseta1.jpg");
-const producto8 = new Producto (8, "Banda",3280, "./assets/camiseta1.jpg");
-const producto10 = new Producto (10, "Sombra",3300, "./assets/camiseta1.jpg");
-
-productos.push (producto1, producto3, producto5, producto7, producto9, producto2, producto4, producto6, producto8, producto10)
-
-
-
-
-// -- SELECTORES --
+// ----------------------- SELECTORES -----------------------------
 
 const contenedorProductos = document.querySelector('.contenedorProductos')
 const contenedorCarrito = document.querySelector("#contenedorCarrito")
@@ -38,18 +11,21 @@ const modalContenedor = document.querySelector(".modalContenedor")
 let contadorCarrito = document.querySelector(".contadorCarrito")
 const btnCerrarCarrito = document.querySelector("#carritoCerrar")
 
-
 const carritoEnLS = JSON.parse( localStorage.getItem('carrito') )
+let stock = []
 
 
 
 
 
+//--------------------DOM de productos---------------------------
 
-//--DOM de productos--
+fetch("./stock.json")
+    .then((resp) => resp.json())
+    .then((data) => {
+        stock = data
 
-
-productos.forEach((el) => {
+        stock.forEach((el) => {
     const div = document.createElement ("div")
     div.classList.add('fichaProducto')
 
@@ -64,15 +40,19 @@ productos.forEach((el) => {
 contenedorProductos.append(div)
 }
 )
+    })
 
 
 
-//--CARRITO--
+
+
+
+//-----------------------CARRITO--------------------------------
 
 let carrito = []
 
 function agregarAlCarrito (id) {
-    const item = productos.find((prod)=> prod.id === id)
+    const item = stock.find((prod)=> prod.id === id)
 
     carrito.push(item)
     
@@ -100,7 +80,7 @@ function eliminarDelCarrito (id) {
             'Tu producto se eliminó correctamente',
             'success'
         )
-    const item = productos.find((prod) =>prod.id === id)
+    const item = stock.find((prod) =>prod.id === id)
     const indice = carrito.indexOf(item)
     carrito.splice(indice, 1)
 
