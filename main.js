@@ -11,11 +11,11 @@ class Producto {
     this.img = img;
 }}
 
-const producto1 = new Producto (1, "Classic",3000, "./assets/camiseta2.jpg");
-const producto3 = new Producto (3, "Liso",3050, "./assets/camiseta2.jpg");
-const producto5 = new Producto (5, "Argento",3100, "./assets/camiseta2.jpg");
-const producto7 = new Producto (7, "Banda",3120, "./assets/camiseta2.jpg");
-const producto9 = new Producto (9, "Floreado",3150, "./assets/camiseta2.jpg");
+const producto1 = new Producto (1, "Classic",3000, "./assets/camiseta1.jpg");
+const producto3 = new Producto (3, "Aqua",3050, "./assets/camiseta2.jpg");
+const producto5 = new Producto (5, "Black",3100, "./assets/camiseta5.jpg");
+const producto7 = new Producto (7, "Paris",3120, "./assets/camiseta4.jpg");
+const producto9 = new Producto (9, "Dúo",3150, "./assets/camiseta3.jpg");
 const producto2 = new Producto (2, "Classic",3200, "./assets/camiseta1.jpg");
 const producto4 = new Producto (4, "Liso",3230, "./assets/camiseta1.jpg");
 const producto6 = new Producto (6, "Argento",3250, "./assets/camiseta1.jpg");
