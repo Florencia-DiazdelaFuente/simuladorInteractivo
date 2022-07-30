@@ -33,8 +33,8 @@ fetch("./stock.json")
                 <img class=imagenProducto src=${el.img} alt="camisetaF">
                 <p>ID: ${el.id}</p>
                 <p> Modelo: ${el.modelo}</p>
-                <p>$${el.precio}</p>
-                <button onclick="agregarAlCarrito(${el.id})" class="botonAgregar">Agregar <i> </i></button>
+                <p>Precio: $${el.precio}</p>
+                <button onclick="agregarAlCarrito(${el.id})" class="botonAgregar">AGREGAR <i> </i></button>
                 `
 
 contenedorProductos.append(div)
@@ -51,46 +51,76 @@ contenedorProductos.append(div)
 
 let carrito = []
 
-function agregarAlCarrito (id) {
-    const item = stock.find((prod)=> prod.id === id)
+function agregarAlCarrito (productoId) {
 
-    carrito.push(item)
-    
-    localStorage.setItem("carrito", JSON.stringify(carrito))
+    const item = stock.find((prod)=> prod.id === productoId)
+
+        // const {id, modelo, precio} = stock.find((prod)=> prod.id === productoId)
+
+        // const itemToCart = {
+        //     id,
+        //     modelo,
+        //     precio,
+        //     cantidad: 1
+        // }
+        carrito.push(item)
+        
+        localStorage.setItem("carrito", JSON.stringify(carrito))
+
+    Toastify({
+        text: "Producto agregado!",
+        duration: 3000,
+        gravity: "bottom",
+        position:"left"
+    }).showToast();
 
     renderCarrito()
     renderTotal()
     renderCantidad()
-}
+    }
+    
+
+
+    
+
 
 function eliminarDelCarrito (id) {
-    Swal.fire({
-        title: 'ELIMINAR PRODUCTO',
-        text: "¿Estás seguro de querer eliminar este producto?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, eliminar producto',
-        cancelButtonText: "Cancelar"
-    }).then((result) => {
-        if (result.isConfirmed) {
-        Swal.fire(
-            'Eliminado',
-            'Tu producto se eliminó correctamente',
-            'success'
-        )
     const item = stock.find((prod) =>prod.id === id)
     const indice = carrito.indexOf(item)
     carrito.splice(indice, 1)
 
-    localStorage.setItem("carrito", JSON.stringify(carrito))
+    // item.cantidad -= 1
 
-    renderCarrito()
+    // if (item.cantidad === 0) {
+    //     const indice = carrito.indexOf(item)
+    //     carrito.splice(indice, 1)
+    // }
+    
+//     Swal.fire({
+//         title: 'ELIMINAR PRODUCTO',
+//         text: "¿Estás seguro de querer eliminar este producto?",
+//         icon: 'warning',
+//         showCancelButton: true,
+//         confirmButtonColor: '#3085d6',
+//         cancelButtonColor: '#d33',
+//         confirmButtonText: 'Sí, eliminar producto',
+//         cancelButtonText: "Cancelar"
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//         Swal.fire(
+//             'Eliminado',
+//             'Tu producto se eliminó correctamente',
+//             'success'
+//         )
+
+// }}
+// )
+localStorage.setItem("carrito", JSON.stringify(carrito))
+
+console.log (carrito)    
+renderCarrito()
     renderTotal()
     renderCantidad()
-}}
-)
 }
 
 
@@ -136,13 +166,12 @@ const renderCarrito = () => {
 
         div.innerHTML = ` 
                     <p>Modelo: ${el.modelo}</p>
+                    <p>Cantidad: ${el.cantidad}</p>
                     <p>$${el.precio} </p>
                     <p>ID: ${el.id} </p>
-                    <button class="btnEliminarProducto"><i class="fa-solid fa-trash"></i></button>
+                    <button onclick="eliminarDelCarrito(${el.id})" class="btnEliminarProducto"><i class="fa-solid fa-trash"></i></button>
                     `
         contenedorCarrito.append(div)
-        const btnEliminarProducto = document.querySelector(".btnEliminarProducto")
-        btnEliminarProducto.addEventListener("click", eliminarDelCarrito)
     })
 }
 

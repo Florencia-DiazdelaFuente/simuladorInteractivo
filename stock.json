@@ -1,12 +1,12 @@
 [
-    {"id": 1, "modelo": "Classic", "precio": 3000, "img": "./assets/camiseta1.jpg"},
-    {"id": 3, "modelo": "Aqua", "precio":3050, "img":"./assets/camiseta2.jpg"},
-    {"id": 5, "modelo": "Black", "precio":3100, "img":"./assets/camiseta5.jpg"},
-    {"id": 7, "modelo": "Paris", "precio":3120, "img":"./assets/camiseta4.jpg"},
-    {"id": 9, "modelo": "Dúo", "precio":3150, "img":"./assets/camiseta3.jpg"},
-    {"id": 2, "modelo": "Classic", "precio":3200, "img":"./assets/camiseta1.jpg"},
-    {"id": 4, "modelo": "Liso", "precio":3230, "img":"./assets/camiseta1.jpg"},
-    {"id": 6, "modelo": "Argento", "precio":3250, "img":"./assets/camiseta1.jpg"},
-    {"id": 8, "modelo": "Banda", "precio":3280, "img":"./assets/camiseta1.jpg"},
-    {"id": 10, "modelo": "Sombra", "precio":3300, "img":"./assets/camiseta1.jpg"}
+    {"id": 1, "modelo": "Classic", "precio": 3000, "img": "./assets/camiseta9.jpg"},
+    {"id": 2, "modelo": "Aqua", "precio":3050, "img":"./assets/camiseta2.jpg"},
+    {"id": 3, "modelo": "Black", "precio":3100, "img":"./assets/camiseta5.jpg"},
+    {"id": 4, "modelo": "Paris", "precio":3120, "img":"./assets/camiseta4.jpg"},
+    {"id": 5, "modelo": "Dúo", "precio":3150, "img":"./assets/camiseta3.jpg"},
+    {"id": 6, "modelo": "Green", "precio":3200, "img":"./assets/camiseta8.jpg"},
+    {"id": 7, "modelo": "Dortmund", "precio":3230, "img":"./assets/camiseta7.jpg"},
+    {"id": 8, "modelo": "Argento", "precio":3250, "img":"./assets/camiseta6.jpg"},
+    {"id": 9, "modelo": "Banda", "precio":3280, "img":"./assets/camiseta1.jpg"},
+    {"id": 10, "modelo": "Athletic", "precio":3300, "img":"./assets/camiseta10.jpg"}
 ]

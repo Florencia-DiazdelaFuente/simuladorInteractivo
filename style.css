@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+main {
+    background-color: rgb(205, 219, 221);
+}
+
+
 header {
     background-color: rgba(26, 25, 25);
     display: flex;
@@ -117,56 +122,77 @@ header div {
     font-weight: 600;
 }
 
-.contenedorProductos {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
+.subtitulo {
+    text-align: center;
+    border-bottom: solid 2px rgb(26, 25, 25);
+    width: 30%;
+    margin-left: 35%;
+    padding-bottom: 5px;
+}
 
+.contenedorProductos {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    justify-content: space-evenly;
+    margin: 30px 0;
 }
 
 .fichaProducto {
-    max-width: 200px;
+    max-width: 240px;
     padding: 10px;
     margin-top: 3px;
     border-width: 5px;
     border-color: black;
-    border-style: double;
+    border-style: groove;
+
 }
 
 .imagenProducto {
-    max-width: 100%;
+    width: 100%;
+    height: 250px;
+}
+
+.botonAgregar {
+    color: rgb(205, 219, 221);
+    width: 100%;
+    background-color: rgb(26, 25, 25);
+    border-radius: 8px;
+    border-color:rgb(26, 25, 25);
+    align-self: center;
+    justify-self: center;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.botonAgregar:hover {
+    font-weight: 600;
 }
 
 
 
-/* .portada {
+.portada {
         width: 100%;
-        filter: brightness(0.5);
-        z-index: -1;
-    } */
+    }
 
-/* .portadaTexto {
-    width: 90%;
+.portadaTexto {
+    width: 70%;
     height: 50%;
-    margin-left: 10%;
-    text-align: left;
-    position: absolute;
-    top: 50%;
-    left: 60%;
-    transform: translate(-70%, -50%);
-    color:  rgb(205, 219, 221);
-} */
+    margin-left: 15%;
+    text-align: center;
+    padding: 20px 0;
+    line-height: 30px;
+}
 
-/* .portadaTexto h1 {
-    width: 18%;
-    border-bottom: 1px solid rgb(205, 219, 221);
-} */
+.portadaTexto p{
+    padding-top: 20px;
+}
 
-/* .portadaTexto p {
+.personalizadoTexto {
     width: 80%;
     margin-left: 10%;
-    padding-top: 150px;
-    padding-right: 50px;
-    line-height: 2;
-    text-align: justify;
-} */
+    padding: 20px 0;
+    text-align: center;
+    line-height: 30px;
+}
