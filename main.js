@@ -40,9 +40,7 @@ fetch("./stock.json")
 contenedorProductos.append(div)
 }
 )
-    })
-
-
+})
 
 
 
@@ -53,17 +51,23 @@ let carrito = []
 
 function agregarAlCarrito (productoId) {
 
-    const item = stock.find((prod)=> prod.id === productoId)
+    // const item = stock.find((prod)=> prod.id === productoId)
 
-        // const {id, modelo, precio} = stock.find((prod)=> prod.id === productoId)
+    const itemInCart = carrito.find((prod)=> prod.id === productoId)
+    if (itemInCart) {
+        itemInCart.cantidad += 1
+    } else {
 
-        // const itemToCart = {
-        //     id,
-        //     modelo,
-        //     precio,
-        //     cantidad: 1
-        // }
-        carrito.push(item)
+        const {id, modelo, precio} = stock.find((prod)=> prod.id === productoId)
+        const itemToCart = {
+            id,
+            modelo,
+            precio,
+            cantidad: 1
+        }
+        carrito.push(itemToCart)
+    }
+        
         
         localStorage.setItem("carrito", JSON.stringify(carrito))
 
@@ -71,7 +75,10 @@ function agregarAlCarrito (productoId) {
         text: "Producto agregado!",
         duration: 3000,
         gravity: "bottom",
-        position:"left"
+        position:"left",
+        style: {
+            background: "rgb(26, 25, 25)"
+        }
     }).showToast();
 
     renderCarrito()
@@ -81,43 +88,31 @@ function agregarAlCarrito (productoId) {
     
 
 
-    
+
 
 
 function eliminarDelCarrito (id) {
-    const item = stock.find((prod) =>prod.id === id)
-    const indice = carrito.indexOf(item)
-    carrito.splice(indice, 1)
+    const item = carrito.find((prod) =>prod.id === id)
+    item.cantidad -= 1
 
-    // item.cantidad -= 1
+    if (item.cantidad === 0) {
+        const indice = carrito.indexOf(item)
+        carrito.splice(indice, 1)
+    }
 
-    // if (item.cantidad === 0) {
-    //     const indice = carrito.indexOf(item)
-    //     carrito.splice(indice, 1)
-    // }
-    
-//     Swal.fire({
-//         title: 'ELIMINAR PRODUCTO',
-//         text: "¿Estás seguro de querer eliminar este producto?",
-//         icon: 'warning',
-//         showCancelButton: true,
-//         confirmButtonColor: '#3085d6',
-//         cancelButtonColor: '#d33',
-//         confirmButtonText: 'Sí, eliminar producto',
-//         cancelButtonText: "Cancelar"
-//     }).then((result) => {
-//         if (result.isConfirmed) {
-//         Swal.fire(
-//             'Eliminado',
-//             'Tu producto se eliminó correctamente',
-//             'success'
-//         )
+    Toastify({
+        text: "Se eliminó un producto",
+        duration: 3000,
+        gravity: "bottom",
+        position:"left",
+        style: {
+            background: "rgb(26, 25, 25)"
+        }
+    }).showToast();
 
-// }}
-// )
+
 localStorage.setItem("carrito", JSON.stringify(carrito))
-
-console.log (carrito)    
+    
 renderCarrito()
     renderTotal()
     renderCantidad()
@@ -181,7 +176,7 @@ const renderCarrito = () => {
 
 const renderCantidad = () => {
     if (carrito.length >=1) {
-        contadorCarrito.innerHTML = carrito.length
+        contadorCarrito.innerHTML = carrito.reduce((acc, prod)=> acc + prod.cantidad , 0)
     }
     else {
         contadorCarrito.innerHTML = ""
@@ -191,7 +186,7 @@ const renderCantidad = () => {
 const renderTotal = () => {
     let total = 0
     carrito.forEach((el) => {
-        total += el.precio
+        total += el.precio * el.cantidad
     })
     precioTotal.innerHTML = total
 }
@@ -207,7 +202,7 @@ if (carritoEnLS) {
 }
 
 
-//--MODAL--
+//------------------MODAL-----------------
 
 btnCarrito.addEventListener ("click", ()=> {
         modalContenedor.classList.toggle("modalActivo")
